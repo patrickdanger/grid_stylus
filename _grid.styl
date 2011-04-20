@@ -1,0 +1,71 @@
+
+/* -- variables -- */
+$grid_width = 960px
+$grid_gutter = 20px
+$grid_columns = 12
+
+/* -- definitions -- */
+body
+	min-width $grid_width
+
+.clear
+	clear both
+	display block
+	overflow hidden
+	visibility hidden
+	width 0
+	height 0
+
+.clearfix:before 
+.clearfix:after
+	content '\0020'
+	display block
+	overflow hidden
+	visibility hidden
+	width 0
+	height 0
+	
+.clearfix:after
+	clear both
+
+.clearfix
+	zoom 1
+
+
+/* -- mixins -- */
+container()
+	margin-left auto
+	margin-right auto
+
+grid_width($n, $c = $grid_columns, $g = $grid_gutter)
+	width ($grid_width / $c * $n) - $g
+
+alpha()
+	margin-left 0
+
+omega()
+	margin-right 0
+	
+grid_content()
+	display inline
+	float left
+	margin-left $g / 2
+	margin-right $g / 2
+
+grid_($n)
+	grid_width $n, $grid_columns, $grid_gutter
+	grid_content
+	
+prefix_($n, $c = $grid_columns, $g = $grid_gutter)
+	padding-left ($grid_width / $c * $n) + ($g / 2)
+
+suffix_($n, $c = $grid_columns, $g = $grid_gutter)
+	padding-right ($grid_width / $c * $n) + ($g / 2)
+	
+push_($n, $c = $grid_columns)
+	position relative
+	left $grid_width / $c * $n
+
+pull_($n, $c = $grid_columns)
+	position relative
+	left (- $grid_width / $c * $n)
