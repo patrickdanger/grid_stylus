@@ -1,12 +1,12 @@
 
 /* -- variables -- */
-$grid_width = 960px
-$grid_gutter = 20px
-$grid_columns = 12
+var_grid_width = 960px
+var_grid_gutter = 20px
+var_grid_columns = 12
 
 /* -- definitions -- */
 body
-	min-width $grid_width
+	min-width var_grid_width
 
 .clear
 	clear both
@@ -34,11 +34,14 @@ body
 
 /* -- mixins -- */
 container()
+	width var_grid_width
 	margin-left auto
 	margin-right auto
+	if debug
+		background-image url(http://960.gs/img/16_col.gif)
 
-grid_width($n, $c = $grid_columns, $g = $grid_gutter)
-	width ($grid_width / $c * $n) - $g
+grid_width(n, c = var_grid_columns, g = var_grid_gutter)
+	width (var_grid_width / c * n) - g
 
 alpha()
 	margin-left 0
@@ -49,23 +52,23 @@ omega()
 grid_content()
 	display inline
 	float left
-	margin-left $g / 2
-	margin-right $g / 2
+	margin-left (var_grid_gutter / 2)
+	margin-right (var_grid_gutter / 2)
 
-grid_($n)
-	grid_width $n, $grid_columns, $grid_gutter
-	grid_content
+grid_(n)
+	grid_width(n)
+	grid_content()
 	
-prefix_($n, $c = $grid_columns, $g = $grid_gutter)
-	padding-left ($grid_width / $c * $n) + ($g / 2)
+prefix_(n, c = var_grid_columns, g = var_grid_gutter)
+	padding-left ((var_grid_width / c * n) + (g / 2))
 
-suffix_($n, $c = $grid_columns, $g = $grid_gutter)
-	padding-right ($grid_width / $c * $n) + ($g / 2)
+suffix_(n, c = var_grid_columns, g = var_grid_gutter)
+	padding-right ((var_grid_width / c * n) + (g / 2))
 	
-push_($n, $c = $grid_columns)
+push_(n, c = var_grid_columns)
 	position relative
-	left $grid_width / $c * $n
+	left (var_grid_width / c * n)
 
-pull_($n, $c = $grid_columns)
+pull_(n, c = var_grid_columns)
 	position relative
-	left (- $grid_width / $c * $n)
+	left (- (var_grid_width / c * n))
