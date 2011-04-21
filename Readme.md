@@ -13,9 +13,6 @@ solid baseline from which to construct your grid system.  These files
 are not interdependent, however.  Take it or leave it.
 
 
-[1]: http://960.gs
-[2]: http://compass-style.org/
-
 ### Creating an intermediate semantic map
 
 Your page itself shouldn't have to be cluttered up with grid framework
@@ -27,7 +24,9 @@ column grid to 12, or vice-versa).
 
 Consider the following standard (:P) page setup.  Notice the elements
 classed as "clear" below, these are a vestige of platform normalization
-in the original 960.gs codebase.
+in the original 960.gs codebase.  While a violation of the strict semantic
+principles I arbitrarily professed above, they are highly recommended
+(you can read more about them at [960.gs][1]).
 
 	<!DOCTYPE html>
 	<html>
@@ -65,3 +64,7 @@ elements into a 16 column grid layout:
 	div#sidebar
 		grid_(5)
 		
+
+
+[1]: http://960.gs
+[2]: http://compass-style.org/
