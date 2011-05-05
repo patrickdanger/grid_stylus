@@ -13,3 +13,34 @@
 	Derivative carries licenses.
 */
 
+@import "src/stylus/grid_stylus/_grid"
+
+.container_12
+.container_16
+.container_24
+	container()
+	
+for cols in 12 16 24
+	for cell in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
+		if cell <= cols
+			.container_{cols} 
+				.grid_{cell}
+					grid_(cell, cols)
+				
+				.push_{cell}
+					push_(cell, cols)
+				
+				.pull_{cell}
+					pull_(cell, cols)
+					
+				.prefix_{cell}
+					prefix_(cell, cols)
+				
+				.suffix_{cell}
+					suffix_(cell, cols)
+
+.alpha
+	alpha()
+
+.omega
+	omega()
