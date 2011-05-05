@@ -68,3 +68,19 @@ elements into a 16 column grid layout:
 
 [1]: http://960.gs
 [2]: http://compass-style.org/
+
+
+### Skipping the intermediate semantics
+
+You can also, should you so choose (and in the interests of rapid
+prototyping or some such) use the general semantic intermediary
+included in this package.  This is akin to using the static 960
+grid stylesheet distributed with the 960.gs package.  
+
+You can use this by simply compiling the 960.styl file or, if you're
+hip and attractive and can directly include stylus files in your
+markup:
+
+	@import "grid_stylus/960.styl"
+	
+This stylesheet compiles out to the 12, 16 and 24 column grids.
