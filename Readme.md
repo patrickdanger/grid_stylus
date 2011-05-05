@@ -4,6 +4,10 @@ An implementation of the 960 grid system ported to the stylus language
 and based on the work at [960.gs][1] and Chris Eppstein's work porting
 960.gs to the [Compass][2] framework.
 
+The fluid implementation is based on the [fluid960gs][4] project by
+Stephen Bau, as well as the work of Nathan Smith on the [960.gs][1]
+project and Chris Eppstein's [Compass][2] port.
+
 This project approaches the 960 grid system as a set of styles that should
 be semantically mapped into your html by an intermediate stylesheet.
 
@@ -47,7 +51,7 @@ Below is an example of an intermediate stylesheet that maps these common
 elements into a 16 column grid layout:
 
 	@import "grid_stylus/_reset.styl"
-	@import "grid_stylus/_grid.styl"
+	@import "grid_stylus/960/_grid.styl"
 
 	var_grid_columns 16
 	var_grid_gutter 20px
@@ -68,6 +72,8 @@ elements into a 16 column grid layout:
 
 [1]: http://960.gs
 [2]: http://compass-style.org/
+[3]: http://www.designinfluences.com/
+[4]: https://github.com/bauhouse/fluid960gs
 
 
 ### Skipping the intermediate semantics
@@ -77,10 +83,14 @@ prototyping or some such) use the general semantic intermediary
 included in this package.  This is akin to using the static 960
 grid stylesheet distributed with the 960.gs package.  
 
-You can use this by simply compiling the 960.styl file or, if you're
-hip and attractive and can directly include stylus files in your
-markup:
+You can use this by simply compiling the [960|fluid]/grid.styl files
+or, if you're hip and attractive and can directly include stylus files 
+in your markup:
 
-	@import "grid_stylus/960.styl"
+	@import "grid_stylus/960/grid.styl"
 	
-This stylesheet compiles out to the 12, 16 and 24 column grids.
+or	
+	
+	@ipmort "grid_stylus/fluid/grid.styl"
+	
+These stylesheets compile out to the 12, 16 and 24 column grids.
