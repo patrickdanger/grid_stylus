@@ -1,0 +1,67 @@
+
+/* -- variables -- */
+var_grid_width   ?= 92%
+var_grid_gutter  ?= 2%
+var_grid_columns ?= 12
+
+
+/* -- definitions -- */
+body
+	min-width var_grid_width
+
+.clear
+	clear both
+	display block
+	overflow hidden
+	visibility hidden
+	width 0
+	height 0
+
+.clearfix:before 
+.clearfix:after
+	content '\0020'
+	display block
+	overflow hidden
+	visibility hidden
+	width 0
+	height 0
+	
+.clearfix:after
+	clear both
+
+.clearfix
+	zoom 1
+	
+
+/* -- mixins -- */
+container()
+	width var_grid_width
+	margin-left 4%
+	margin-right 4%
+	
+grid_width(n, c = var_grid_columns, g = var_grid_gutter)
+	width unit((n/c) * 100 - g, '%')
+
+grid_content()
+	display inline
+	float left
+	margin-left (var_grid_gutter / 2)
+	margin-right (var_grid_gutter / 2)
+
+grid_(n, c = var_grid_columns, g = var_grid_gutter)
+	grid_width(n, c, g)
+	grid_content()
+	
+
+prefix_(n, c = var_grid_columns)
+	padding-left unit((n / c) * 100, '%')
+
+suffix_(n, c = var_grid_columns)
+	padding-right unit((n / c) * 100, '%')
+
+
+alpha()
+	margin-left 0
+
+omega()
+	margin-right 0

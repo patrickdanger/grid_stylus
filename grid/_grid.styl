@@ -1,8 +1,9 @@
 
-/* -- variables -- */
-var_grid_width = 960px
-var_grid_gutter = 20px
-var_grid_columns = 12
+/* -- variables ?= defaults -- */
+var_grid_width   ?= 960px
+var_grid_gutter  ?= 20px
+var_grid_columns ?= 12
+var_grid_debug   ?= false
 
 /* -- definitions -- */
 body
@@ -37,17 +38,11 @@ container()
 	width var_grid_width
 	margin-left auto
 	margin-right auto
-	if debug
-		background-image url(http://960.gs/img/16_col.gif)
+	if var_grid_debug
+		background-image url('http://960.gs/img/'+var_grid_columns+'_col.gif')
 
 grid_width(n, c = var_grid_columns, g = var_grid_gutter)
 	width (var_grid_width / c * n) - g
-
-alpha()
-	margin-left 0
-
-omega()
-	margin-right 0
 	
 grid_content()
 	display inline
@@ -55,8 +50,8 @@ grid_content()
 	margin-left (var_grid_gutter / 2)
 	margin-right (var_grid_gutter / 2)
 
-grid_(n)
-	grid_width(n)
+grid_(n, c = var_grid_columns, g = var_grid_gutter)
+	grid_width(n, c, g)
 	grid_content()
 	
 prefix_(n, c = var_grid_columns, g = var_grid_gutter)
@@ -72,3 +67,9 @@ push_(n, c = var_grid_columns)
 pull_(n, c = var_grid_columns)
 	position relative
 	left (- (var_grid_width / c * n))
+
+alpha()
+	margin-left 0
+
+omega()
+	margin-right 0

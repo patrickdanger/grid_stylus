@@ -1,0 +1,40 @@
+/*
+	960 Grid System ~ Core CSS.
+	Learn more ~ http://960.gs/
+
+	Implemented atop the grid_stylus project, which ports the 
+	960 grid system to the Stylus language.  This core file
+	aims to add back in a static stylesheet and act as a general
+	semantic intermediary.
+	
+	Learn more about Stylus ~ http://learnboost.github.com/stylus/
+	
+	Original licensed under GPL and MIT.
+	Derivative carries licenses.
+*/
+
+@import "src/stylus/grid_stylus/_fluidgrid"
+
+.container_12
+.container_16
+.container_24
+	container()
+
+for cols in 12 16 24
+	for cell in 1 .. 24 
+		if cell <= cols
+			.container_{cols} 
+				.grid_{cell}
+					grid_(cell, cols)
+
+				.prefix_{cell}
+					prefix_(cell, cols)
+
+				.suffix_{cell}
+					suffix_(cell, cols)
+
+.alpha
+	alpha()
+
+.omega
+	omega()
